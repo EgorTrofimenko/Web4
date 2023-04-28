@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}
+О нас
+{% endblock %}
+{% block body %}
+{% include 'header.html' %}
+<!-- import requests
+
+# Координаты места, для которого нужен снимок карты
+latitude = 55.7522200
+longitude = 37.6155600
+
+# API-ключ Яндекс.Карт
+api_key = 'Ваш API-ключ'
+
+# Формируем URL-адрес для запроса снимка карты
+url = f'https://static-maps.yandex.ru/1.x/?ll={longitude},{latitude}&z=13&size=450,450&l=map&key={api_key}'
+
+# Отправляем запрос на получение снимка карты
+response = requests.get(url)
+
+# Записываем полученный снимок карты в файл
+with open('map.png', 'wb') as f:
+    f.write(response.content)
+    <img src="{{ url_for('static', filename='map.png') }}" alt="Снимок карты">
+   -->
+<div class="container">
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=ВАШ_API_КЛЮЧ&lang=ru_RU" type="text/javascript"></script>
+  <h1 class="text-center mb-4">О нас</h1>
+  <p class="text-justify mb-4">
+    Sneaker Store - магазин кроссовок, представленный известными брендами. Мы, команда проекта во главе с Бойцовом Себастьяном, лично протестировали множество продуктов и отобрали для вас только лучшее. Мы не просто магазин, мы - бьюти пространство, собравшее у себя только уникальные продукты, которые сделают ваш внешний вид лучше!
+  </p>
+  <p class="text-justify mb-4">
+    Спасибо за ваш интерес и доверие, мы не подведём!
+    <br>
+    P.S. У нас вы всегда можете получить консультацию по подбору кроссовок.
+    <p>
+    Наши контакты:
+</p>
+    <div id="map" style="width: 600px; height: 400px"></div>
+  </p>
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}

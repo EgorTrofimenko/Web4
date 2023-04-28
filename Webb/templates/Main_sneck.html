@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}
+Nike
+{% endblock %}
+
+{% block body %}
+
+{% set sneaker = sneakers_list[0]%}
+{% set base_path_small = "/static/pict/product/" + sneaker.brand.replace(" ", "_") + "/" + sneaker.brand.replace(" ", "_") + "_big/" %}
+<div class="container mt-6">
+    <div class="card border-0">
+        <div class="row no-gutters">
+            <div class="col-md-6">
+                <img src="{{ getpath_for_pict(base_path_small, sneaker.model )}}" class="card-img" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+                <div class="card-body">
+                    <h1 class="card-title mb-0">{{ sneaker.model }}</h1>
+                    <p class="card-text text-muted mb-2">{{ sneaker.brand }}</p>
+                    <h2 class="card-subtitle text-danger mb-4">{{ sneaker.price }}Р</h2>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item">Бренд: {{ sneaker.brand }}</li>
+                        <li class="list-group-item">Модель: {{ sneaker.model }}</li>
+                        <li class="list-group-item">Цвет: {{ sneaker.color }}</li>
+                        <li class="list-group-item">Материал Вверх: {{ sneaker.material_up }}</li>
+                        <li class="list-group-item">Материал низ: {{ sneaker.material_down }}</li>
+                        <li class="list-group-item">Размер: {{ sneaker.size }}</li>
+                        <li class="list-group-item">Описание: {{ sneaker.text }}
+                        </li>
+                    </ul>
+                    <a href="/store.html?id={{sneaker.id}}" class="btn btn-dark">В корзину</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

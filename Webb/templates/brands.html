@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Бренды
+{% endblock %}
+
+{% block body %}
+{% include 'header.html' %}
+<link rel="stylesheet" type="text/css" href="static/css/button.css">
+<div class="container">
+  <h1 class="text-center font-weight-bold" сlass=".lead">Бренды</h1>
+  <div class="row">
+    <div class="col-sm-4">
+      <a href="Nike.html"><img src="/static/pict/product/Nike/Nike_logo.png" width="250" alt="Картинка 1" class="img-thumbnail"></a>
+      <div class="caption font-weight-bold">Nike</div>
+    </div>
+    <div class="col-sm-4">
+      <a href="Adidas.html"><img src="/static/pict/product/Adidas/adidas.png" width="250" alt="Картинка 2" class="img-thumbnail"></a>
+      <div class="caption font-weight-bold">Adidas</div>
+    </div>
+    <div class="col-sm-4">
+      <a href="NB.html"><img src="/static/pict/product/New_Balance/New_Balance.png" width="250" alt="Картинка 3" class="img-thumbnail"></a>
+      <div class="caption font-weight-bold">New Balance</div>
+    </div>
+  </div>
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}

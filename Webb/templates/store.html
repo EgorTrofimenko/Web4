@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}
+Корзина
+{% endblock %}
+
+{% block body %}
+
+{% set sneaker = sneakers_list[0]%}
+{% set base_path_small = "/static/pict/product/" + sneaker.brand.replace(" ", "_") + "/" + sneaker.brand.replace(" ", "_") + "_big/" %}
+<div class="container" xmlns="http://www.w3.org/1999/html">
+    <h2>Корзина</h2>
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="card mb-3">
+
+                <div class="row no-gutters">
+
+                    <div class="col-md-4">
+                        <img src="{{ getpath_for_pict(base_path_small, sneaker.model )}}" alt="Product Image"
+                             class="card-img">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h3 class="card-title"></h3>
+                            <p class="card-text">{{ sneaker.model }}</p>
+
+                            <div class="form-group">
+                                <label for="quantity">Количество:</label>
+                                <input type="number" class="form-control" id="quantity" min="1" max="10" value="1"
+                                       onchange="updateTotal()">
+                                <button type="button" class="btn btn-danger">Удалить</button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <h5>Цена за шт.: {{ sneaker.price }} Р</h5>
+
+                        </div>
+                        <script>
+                        function updateTotal() {
+                        const quantity = document.getElementById("quantity").value;
+                        const price = {{ sneaker.price }};
+                        const total = quantity * price;
+                        document.getElementById("total").textContent = total;
+                        }
+
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Итого</h4>
+                    <ul class="list-group">
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="{{ getpath_for_pict(base_path_small, sneaker.model )}}"
+                                         alt="Product Image" class="card-img">
+                                </div>
+                                <div class="col-md-8">
+                                    {{ sneaker.model }}
+                                </div>
+                            </div>
+                            <span class="badge badge-primary badge-pill">$10</span>
+                        </li>
+
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <img src="/static/pict/lol.png" alt="Итого" class="img-fluid">
+                                </div>
+                                <div class="col-md-8">
+                                    <h1>Итого: <span id="total">{{ sneaker.price }}</span> Р</h1>
+                                </div>
+                            </div>
+                            <span class="badge badge-primary badge-pill">$33</span>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-success btn-block"
+                            onclick="window.location.href = '/end.html';">Оформить заказ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

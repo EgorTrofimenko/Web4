@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <link rel="stylesheet" type="text/css" href="static/css/main_window.css">
+    <button onclick="window.location.href = '/register.html';">Регистрация</button>
+    <button onclick="window.location.href = '/login.html';">Логин</button>
+    <button onclick="window.location.href = '/dashboard.html';">Выход из аккаунта</button>
+    <button onclick="window.location.href = '/brands.html';">Бренды</button>
+    <button onclick="window.location.href = '/about.html';">О нас</button>
+    <button onclick="window.location.href = '/store.html';">Корзина</button>
+</div>
+
+
+{% include 'footer.html' %}
+{% endblock %}

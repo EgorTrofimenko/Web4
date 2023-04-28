@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+
+{% set sneaker = sneakers_list[0]%}
+{% set base_path_small = "/static/pict/product/" + sneaker.brand.replace(" ", "_") + "/" + sneaker.brand.replace(" ", "_") + "_big/" %}
+<div class="card mb-3">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img src="{{ getpath_for_pict(base_path_small, sneaker.model )}}" alt="Товар 1" class="card-img">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h3 class="card-title">{{ sneaker.brand }}</h3>
+                <p class="card-text"></p>
+                <div class="form-group">
+                    <label for="quantity">Количество:</label>
+                    <input type="number" class="form-control" id="quantity" min="1" max="10" value="1">
+                </div>
+                <button type="button" class="btn btn-danger">Удалить</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

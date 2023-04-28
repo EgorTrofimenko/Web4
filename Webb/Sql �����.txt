@@ -1,0 +1,1 @@
+SELECT * FROM product WHERE color == "white" AND price <= 100000000

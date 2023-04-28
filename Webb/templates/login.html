@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    <link rel="stylesheet" type="text/css" href="static/css/signin.css">
+    <title>Авторизация</title>
+  </head>
+  <body>
+    <h1>Авторизация</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="post">
+      <label for="username">Имя пользователя:</label>
+      <input type="text" id="username" name="username" required>
+      <br>
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" required>
+      <br>
+      <input type="submit" value="Войти">
+    </form>
+    <p>Еще не зарегистрированы? <a href="{{ url_for('register') }}">Зарегистрироваться</a></p>
+  </body>
+</html>

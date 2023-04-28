@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% include 'header.html' %}
+
+{% block title %}
+Adidas
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        {% set base_path_small = "/static/pict/product/Adidas/Adidas_small/" %}
+        {% for sneaker in sneakers_list %}
+
+        <div class="col-md-4">
+            <div class="card">
+                <img class="card-img-top" src="{{ getpath_for_pict(base_path_small, sneaker.model )}}" alt="Product Image">
+                <div class="card-body">
+                    <h5 class="card-title">{{ sneaker.brand }}</h5>
+                    <h5 class="card-text">{{ sneaker.model }}</h5>
+                    <p class="card-text">Цена: {{ sneaker.price }} Р</p>
+                    <a href="/Main_sneck.html?id={{sneaker.id}}" class="btn btn-dark">Описание</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

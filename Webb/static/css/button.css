@@ -1,0 +1,16 @@
+.caption {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: center;
+}
+
+h1 {
+  margin-top: 50px;
+  font-size: 36px;
+  font-family: Arial, sans-serif;
+}
+
+.img-thumbnail {
+  display: block;
+  margin: auto;
+}
